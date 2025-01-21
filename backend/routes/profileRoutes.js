@@ -11,6 +11,8 @@ router.post("/upload-profile-pic", upload.single("file"), async (req, res) => {
 
   try {
     const uploadResponse = await uploadOnCloudinary(req.file.path);
+    // console.log(uploadResponse);
+    
 
     if (!uploadResponse) {
       return res.status(500).json({ message: "Cloudinary upload failed" });
